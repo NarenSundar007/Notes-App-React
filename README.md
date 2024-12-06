@@ -24,3 +24,17 @@ A simple full-stack Notes App built using React, normal CSS, and Express.js.
    ```bash
    git clone https://github.com/your-username/notes-app.git
    cd notes-app
+   npm start
+   cd ../backend
+   npm install
+   node server.js
+
+2. Folder Structure:
+    ```bash
+    notes-app/
+    ├── backend/         # Backend server files
+    ├── frontend/        # React frontend files
+    ├── README.md        # Project documentation
+
+
+
