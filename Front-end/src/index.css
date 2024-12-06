@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Playwrite+HR+Lijeva:wght@100..400&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(to right, purple, red, yellow);
+  }
+
+  .heading {
+    font-family: "Playwrite HR Lijeva", cursive; /* Use the imported font */
+    font-optical-sizing: auto;
+    font-weight: 300; /* Choose a weight between 100 and 400 */
+    font-style: normal;
+    font-size: 2.5rem; /* Adjust size as needed */
+    color: #030303; /* Choose a color for the heading */
+    text-align: center; /* Center the heading text */
+    margin: 20px 0; /* Add vertical spacing */
+  }
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box{
+    background-color: rgb(255, 255, 255);
+    width: 40vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+
+input{
+    color: rgba(rgb(237, 164, 47), green, blue, alpha);
+    width: 80%;
+    height: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+button{
+    background-color: rgb(63, 84, 197);
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+}
+
+li {
+    list-style-type: none;
+    padding: 10px;
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Place items at the start and end */
+    align-items: center; /* Align items vertically in the center */
+    width: 100%; /* Ensure the list item spans the full width */
+  }
+  
+  .delete {
+    background-color: red;
+    margin-left: 20px; /* Optional: Adds space between the text and the button */
+  }
+  
