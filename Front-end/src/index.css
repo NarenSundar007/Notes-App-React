@@ -9,14 +9,14 @@ body {
   }
 
   .heading {
-    font-family: "Playwrite HR Lijeva", cursive; /* Use the imported font */
+    font-family: "Playwrite HR Lijeva", cursive; 
     font-optical-sizing: auto;
-    font-weight: 300; /* Choose a weight between 100 and 400 */
+    font-weight: 300; 
     font-style: normal;
-    font-size: 2.5rem; /* Adjust size as needed */
-    color: #030303; /* Choose a color for the heading */
-    text-align: center; /* Center the heading text */
-    margin: 20px 0; /* Add vertical spacing */
+    font-size: 2.5rem; 
+    color: #030303; 
+    text-align: center; 
+    margin: 20px 0; 
   }
 
 .Container {
@@ -58,14 +58,14 @@ button{
 li {
     list-style-type: none;
     padding: 10px;
-    display: flex; /* Use flexbox to align items */
-    justify-content: space-between; /* Place items at the start and end */
-    align-items: center; /* Align items vertically in the center */
-    width: 100%; /* Ensure the list item spans the full width */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%; 
   }
   
   .delete {
     background-color: red;
-    margin-left: 20px; /* Optional: Adds space between the text and the button */
+    margin-left: 20px;
   }
   
