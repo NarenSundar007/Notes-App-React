@@ -4,6 +4,8 @@
 
 A simple full-stack Notes App built using React, normal CSS, and Express.js.
 
+(Currently Working on Login and session features using Google OAuth)
+
 ### This project has 2 different types of Back-end servers:
 1) Just stores the notes in an array if there is post request and and returns notes from that array if given a get request.(Data gets lost if server restarts)
 2) Uses a local mongoDB server to store the notes and notes are permanently stored in disk so no worries of dataloss
