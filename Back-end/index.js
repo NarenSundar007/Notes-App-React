@@ -13,6 +13,7 @@ app.get('/notes', (req, res) => res.json(notes));
 app.post('/notes', (req, res) => {
   const note = req.body;
   notes.push(note);
+  console.log(note);
   res.json(note);
 });
 app.delete('/notes/:id', (req, res) => {
