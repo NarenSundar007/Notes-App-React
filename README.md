@@ -11,6 +11,7 @@ A simple full-stack Notes App built using React, normal CSS, and Express.js.
 2) Uses a local mongoDB server to store the notes and notes are permanently stored in disk so no worries of dataloss
 
 ## Features
+- Simple CRUD operations
 - Add notes with a unique ID and description.
 - View all notes in a list format.
 - Delete notes with a single click.
