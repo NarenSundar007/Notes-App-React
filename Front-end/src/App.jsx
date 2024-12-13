@@ -32,7 +32,7 @@ function App() {
   const editNote = (id) => {
     const noteToEdit = notes.find(note => note.id === id);
     setEditId(id);
-    setEditText(noteToEdit.text); // Pre-fill the text field with the current note text
+    setEditText(noteToEdit.text); 
   };
 
   const saveEdit = (id) => {
