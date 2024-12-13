@@ -1,3 +1,5 @@
+//sudo systemctl start mongod
+
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -50,6 +52,36 @@ app.delete('/notes/:id', async (req, res) => {
     res.status(500).json({ message: 'Error deleting note' });
   }
 });
+
+app.put('/notes/:id', async (req, res) => {
+  try {
+    const noteId = parseInt(req.params.id); // Extract the note ID
+    const updatedData = req.body; // Get updated data from request body
+
+    // Ensure the updated data has the required fields
+    if (!updatedData.text) {
+      return res.status(400).json({ message: 'Text field is required' });
+    }
+
+    // Update the note in the database
+    const updatedNote = await Note.findOneAndUpdate(
+      { id: noteId }, // Filter the note by ID
+      { text: updatedData.text }, // Update only the text field
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedNote) {
+      return res.status(404).json({ message: 'Note not found' });
+    }
+
+    res.json(updatedNote); // Respond with the updated note
+  } catch (err) {
+    console.error('Error updating note:', err);
+    res.status(500).json({ message: 'Error updating note' });
+  }
+});
+
+
 
 // Start server
 const PORT = 5000;
