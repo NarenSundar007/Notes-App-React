@@ -10,12 +10,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/notesApp')
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Could not connect to MongoDB:', err));
 
-// Define the Note schema and model
 const noteSchema = new mongoose.Schema({
   id: { type: Number, required: true },
   text: { type: String, required: true },
@@ -55,26 +53,25 @@ app.delete('/notes/:id', async (req, res) => {
 
 app.put('/notes/:id', async (req, res) => {
   try {
-    const noteId = parseInt(req.params.id); // Extract the note ID
-    const updatedData = req.body; // Get updated data from request body
+    const noteId = parseInt(req.params.id); 
+    const updatedData = req.body; 
 
-    // Ensure the updated data has the required fields
     if (!updatedData.text) {
       return res.status(400).json({ message: 'Text field is required' });
     }
 
-    // Update the note in the database
+  
     const updatedNote = await Note.findOneAndUpdate(
-      { id: noteId }, // Filter the note by ID
-      { text: updatedData.text }, // Update only the text field
-      { new: true } // Return the updated document
+      { id: noteId }, 
+      { text: updatedData.text }, 
+      { new: true } 
     );
 
     if (!updatedNote) {
       return res.status(404).json({ message: 'Note not found' });
     }
 
-    res.json(updatedNote); // Respond with the updated note
+    res.json(updatedNote); 
   } catch (err) {
     console.error('Error updating note:', err);
     res.status(500).json({ message: 'Error updating note' });
