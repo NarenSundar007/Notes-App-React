@@ -55,50 +55,53 @@ function App() {
   };
 
   return (
-    <div className="Container">
-      <div className="box">
-        <h1 className="heading">Notes App</h1>
-        <input
-          type="text"
-          value={newNote}
-          onChange={(e) => setNewNote(e.target.value)}
-          placeholder="Write a note..."
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              addNote();
-            }
-          }}
-        />
-        <button onClick={addNote}>Add Note</button>
-        <ol>
-          {notes.map(note => (
-            <li key={note.id}>
-              {editId === note.id ? (
-                <>
-                  <input
-                    type="text"
-                    value={editText}
-                    onChange={(e) => setEditText(e.target.value)}
-                  />
-                  <button onClick={() => saveEdit(note.id)}>Save</button>
-                  <button onClick={cancelEdit}>Cancel</button>
-                </>
-              ) : (
-                <>
-                  {note.text}
-                  <button className="delete" onClick={() => deleteNote(note.id)}>
-                    Delete
-                  </button>
-                  <button className="edit" onClick={() => editNote(note.id)}>
-                    Edit
-                  </button>
-                </>
-              )}
-            </li>
-          ))}
-        </ol>
-      </div>
+<div className="Container">
+  <div className="box">
+    <h1 className="heading">Notes App</h1>
+    <input
+      type="text"
+      value={newNote}
+      onChange={(e) => setNewNote(e.target.value)}
+      placeholder="Write a note..."
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          addNote();
+        }
+      }}
+    />
+    <button onClick={addNote}>Add Note</button>
+    <div className="notes-container">
+      <ol>
+        {notes.map(note => (
+          <li key={note.id}>
+            {editId === note.id ? (
+              <>
+                <input
+                  type="text"
+                  value={editText}
+                  onChange={(e) => setEditText(e.target.value)}
+                />
+                <button onClick={() => saveEdit(note.id)}>Save</button>
+                <button onClick={cancelEdit}>Cancel</button>
+              </>
+            ) : (
+              <>
+                {note.text}
+                <button className="delete" onClick={() => deleteNote(note.id)}>
+                  Delete
+                </button>
+                <button className="edit" onClick={() => editNote(note.id)}>
+                  Edit
+                </button>
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
     </div>
+  </div>
+</div>
+
   );
 }
 
