@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const BackendURL = 'https://notes-app-react-qy1b.onrender.com'
+const localURL = 'http://localhost:5000' 
+
 function App() {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState('');
@@ -8,7 +11,7 @@ function App() {
   const [editText, setEditText] = useState(''); // Track the updated note text
 
   useEffect(() => {
-    axios.get('http://localhost:5000/notes').then(res => setNotes(res.data));
+    axios.get(`${BackendURL}/notes`).then(res => setNotes(res.data));
   }, []);
 
   const addNote = () => {
@@ -17,14 +20,14 @@ function App() {
       return;
     }
     const note = { id: Date.now(), text: newNote };
-    axios.post('http://localhost:5000/notes', note).then(res => {
+    axios.post(`${BackendURL}/notes`, note).then(res => {
       setNotes([...notes, res.data]);
       setNewNote('');
     });
   };
 
   const deleteNote = (id) => {
-    axios.delete(`http://localhost:5000/notes/${id}`).then(() => {
+    axios.delete(`${BackendURL}/notes/${id}`).then(() => {
       setNotes(notes.filter(note => note.id !== id));
     });
   };
@@ -36,7 +39,7 @@ function App() {
   };
 
   const saveEdit = (id) => {
-    axios.put(`http://localhost:5000/notes/${id}`, { text: editText })
+    axios.put(`${BackendURL}/notes/${id}`, { text: editText })
       .then(res => {
         setNotes(notes.map(note => (note.id === id ? res.data : note))); // Update local state
         setEditId(null);

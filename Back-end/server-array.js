@@ -21,6 +21,21 @@ app.delete('/notes/:id', (req, res) => {
   res.json({ message: 'Note deleted' });
 });
 
+app.put('/notes/:id', (req, res) => {
+  const noteId = parseInt(req.params.id);
+  const updatedData = req.body;
+
+  if (!updatedData.text) {
+    return res.status(400).json({ message: 'Text field is required' });
+  }
+
+  const note = notes.find(note => note.id === noteId);
+  note.text = updatedData.text;
+
+  res.json(note);
+}
+);
+
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
